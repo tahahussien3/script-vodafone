@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تبديل شحنات</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: right;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .error {
+            margin-top: 20px;
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form method="POST">
+            <label> رقمك </label><br>
+            <input type="text" name="number" required><br>
+            <label> كلمة السر </label><br>
+            <input type="password" name="password" required><br>
+            <label> الرقم المرسل اليه الهدية </label><br>
+            <input type="text" name="gift_number" required><br>
+            <input type="submit" value="إرسال">
+        </form>
+          {% if message %}
+            <p class="{{ 'message' if 'نجاح' in message else 'error' }}">{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
